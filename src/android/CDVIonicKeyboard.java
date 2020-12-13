@@ -153,9 +153,9 @@ public class CDVIonicKeyboard extends CordovaPlugin {
 
                         private boolean isFullScreen() {
                             final Window window = cordova.getActivity().getWindow();
-                            // Values set by status bar plugin to make content full screen
-                            int fullScreenFlag = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-                            return window.getDecorView().getSystemUiVisibility() == fullScreenFlag;
+                            // Flag set by status bar plugin to make content full screen
+                            int fullScreenFlag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+                            return (window.getDecorView().getSystemUiVisibility() & fullScreenFlag) == fullScreenFlag;
                         }
                     };
 
